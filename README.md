@@ -1,1 +1,1 @@
-My first scripts in alx
+My first scripts
