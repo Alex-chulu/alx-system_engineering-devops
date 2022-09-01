@@ -1,1 +1,1 @@
-a script that creates a directory called my_dir
+ a script that changes the group owner
