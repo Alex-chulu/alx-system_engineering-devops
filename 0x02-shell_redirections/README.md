@@ -1,1 +1,1 @@
- a script that removes all letters
+a script that reverse its input
