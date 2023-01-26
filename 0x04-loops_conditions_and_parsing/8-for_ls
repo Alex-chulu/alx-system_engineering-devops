@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Bash script that displays
 
-for file in *; do
-  echo "$file" | cut -d '-' -f 2;
+for data in *; do
+  echo "$data" | cut -d '-' -f 2;
 done
 
