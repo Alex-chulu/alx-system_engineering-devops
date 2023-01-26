@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Bash script that displays the content of the file /etc/passwd
+
+data="/etc/passwd"
+
+while IFS= read -r ln; do
+  echo "$ln" | cut -d ':' -f1,3,6
+done < "$data"
