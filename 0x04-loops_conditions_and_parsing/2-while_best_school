@@ -3,7 +3,7 @@
 
 x = 0
 
-while (x <= 10); do
-	echo "Best School"
-	(x++)
+while [ "$x" -lt 10 ]; do
+  echo "Best School"
+  ((i++))
 done
