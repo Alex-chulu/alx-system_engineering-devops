@@ -6,4 +6,4 @@ x = 0
 while (x <= 10); do
 	echo "Best School"
 	x++
-	done
+done
