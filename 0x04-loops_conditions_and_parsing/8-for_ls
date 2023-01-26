@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Bash script that displays
+
+for data in *; do
+  echo "$data" | cut -d '-' -f 2;
+done
+
