@@ -22,17 +22,17 @@ int infinite_while(void)
 int main(void)
 {
 	int processes_1 = 0;
-	proid_t pid;
+	pid_t proid;
 
 	while (processes_1 < 5)
 	{
-		pid = fork();
-		if (!pid)
+		proid = fork();
+		if (!proid)
 			break;
-		printf("Zombie process created, PID: %i\n", (int)pid);
+		printf("Zombie process created, PID: %i\n", (int)proid);
 		processes_1++;
 	}
-	if (pid != 0)
+	if (proid != 0)
 		infinite_while();
 	return (0);
 }
