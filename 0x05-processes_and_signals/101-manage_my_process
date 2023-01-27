@@ -8,6 +8,7 @@ if [ -z "$instruct" ]; then
   exit
 fi
 
+
 if [ "$instruct" == "start" ]; then
 
   bash ./manage_my_process &
