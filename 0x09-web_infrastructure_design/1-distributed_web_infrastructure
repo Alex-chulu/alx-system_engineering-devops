@@ -1,0 +1,56 @@
+This configuration is composed of two servers running concurrently, in other words we have added one more server
+to the last single server configuration. In this architecture, these two severs share tasks and resources for the 
+running applications, a process which brings high reliability and proficiency to the businesses managing these applications.
+The use of multi server system in the business generally helps guarantee high performance and uptime, sustain security, and enables more efficient resource allocation.
+In summary, we are using this architecture as a means of improving performance, security, availability and reduce the risk of downtime of applications. If one server fails, the other one taks on the requests directed to the other one anabling continual availability of applications to users.
+
+The load-balancer is using Round Robin distribution algorithm - Requests are distributed across the group of servers sequentially. 
+Request 1 is directed to server 1, request 2 to server 2, and so forth. After sending the request to the last server, it starts from the first server again.
+
+My load-balancer is enabling an Active-Active setup
+In Active-Active mode, two or more servers distribute the network traffic load among themselves, and work as a team.
+The one potential disadvantage of setting up servers in this mode is that you are running them at near full capacity. 
+What this would mean is that unless you have a spare sever to commission and make operational within the network, in the event of a server failure, your systems would be too slow or be 
+completely unavailable.
+
+In An Active/Passive configuration, the load balancer will distributes the network traffic to the most suitable server (primary server) while the second sever 
+operates in listening mode to constantly monitor the performance of the primary server and is ready at any time to step in and take over the load should the primary server fail.
+Once the primary server fails, the load balancer now directs all this load the passive server and for this reason, it is important that primary and failover node (server) has
+the exact server configuration, so clients won’t be able to tell the difference when the failover server takes over the operation.
+
+How a database Primary-Replica (Master-Slave) cluster works.
+Many developers use master-slave replication to solve a number of different problems, including problems with performance, supporting 
+the backup of different databases, and as a part of a larger solution to alleviate system failures.
+
+Master-slave replication enables data from one database server (the master) to be replicated to one or more other database servers (the slaves). 
+The master logs the updates, which then ripple through to the slaves. The slave outputs a message stating that it has received the update successfully, 
+thus allowing the sending of subsequent updates. 
+
+Master-slave replication can be either synchronous or asynchronous. The difference is simply the timing of propagation of changes. 
+If the changes are made to the master and slave at the same time, it is synchronous. If changes are queued up and written later, it is asynchronous.
+
+What is the difference between the Primary node and the Replica node in regard to the application.
+The main difference between the primary node and the replica node is that the primary node receives all write operations, while the replica nodes apply 
+operations from the primary node’s oplog. The replica nodes also provide redundancy and high availability for read operations.
+
+In this scenario, the primary node (database) is regarded as the authoritative source, while the replica database is synchronized to it.
+The primary node serves as the keeper of information, here the “real” data is kept, then writing only happens here. On the other hand, reading only occurs
+in the replica or slave node. The purpose is to safeguard site reliability. In case a site receives a lot of traffic, a replica node prevents overloading 
+of the master node with reading and writing requests. This eases the load of the entire system preventing it to collapse.
+
+The issues are with this infrastructure:
+One of the issues is of this is the SPOF (Single Point of Failure). This is because all our servers are running concurrently which means there is no failover server
+to take on the load if one fails. It is an Active-Active configuration.
+
+The presence of one database with no replica is also not a good idea beacuse the database is unavailable at any instance, the application becomes faulty.
+Another issue is that the database is also overloaded with more load with no other database to share the tasks with, this makes it too slow to perform all the needed tasks.
+
+The system is also not secure since there are no HTTPS and firewalls to protect the network traffic, this exposes the internal network to outsiders, a thing which is 
+bad for a business as far as network security is concerned. In this case, unauthorized user can gain access into the restricted resources and make the applications unavailable to the 
+intended custmers.
+
+You cannot improve what you dont monitor. Improving the business process happens when we have monitored and discovered bottlenecks to be ammended. If our operations are 
+not monitored, we will not be able to know which ones are running well and which ones are not.
+
+
+The screenshot for this infrastructure design can be found here : https://drive.google.com/drive/folders/16YzV6sYJnoJP_Fu8I80gsTudmH2QV_U5?usp=sharing
