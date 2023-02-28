@@ -1,0 +1,47 @@
+Server
+
+A server is a piece of computer hardware or software (computer program) that provides functionality for other programs or devices, called "clients".
+This architecture is called the client–server model.
+Servers can provide various functionalities, often called "services", such as sharing data or resources among multiple clients,
+or performing computation for a client. A single server can serve multiple clients, and a single client can use multiple servers.
+
+The role of the domain name
+Theoretically, everything could be handled using just an IP address when we want to access web resources.
+But because humans are better at remembering names than we are at remembering strings of digits, that's why domain names exist,
+to replace the direct use of IP addresses with domain names.
+
+Type of DNS record www is in www.foobar.com
+The www part of www.foobar.com is called a subdomain and it can have different types of DNS records depending on how it is configured but
+in this reguard, it is using type A record which maps a domain names to an IP address
+
+The role of the web server
+The main role of a web server is to store, process, and deliver webpages or other information to users.
+A web server can also perform other functions, such as storing and protecting website data, supporting email and file transfer, and installing web applications
+
+The role of the application server
+Application servers physically or virtually sit between database servers storing application data and web servers communicating with clients.
+App servers and akin middleware are the operating systems supporting an application’s development and delivery.
+Whether it’s a desktop, mobile, or web app, application servers play a critical role in connecting a world of devices.
+When application users, be it staff or web clients, request access to an application, the application server often does the heavy lifting on the backend
+to store and process dynamic application requests
+
+The role of the database
+Most applications will use a database to store data. This database can be relational or not, but some data store will be needed.
+The role of the database is to make the information gathered organized so it can be easily accessed, managed and updated.
+
+The server is using the HTTP (Hypertext Transfer Protocol), which enables the transfer of resource and data, such as HTML documents between the server and the client.
+In this data exchange the request is initiated by the client, which is done normally by web browser (it can also be done by an operating sistem or application)
+are called request and the server answers are called responses. Between the client and server data exchange we can find numerous entintes, collectively called proxies,
+performing different operations such as gateways or caches.
+
+The issues with this infrastructure:
+SPOF (Single Point of Failure) where if a component of the system fails, there is no backup that can support the continuity of the functionality of the system, 
+bringing the whole system to a collapse by being unable to operate.
+
+Also, whenever some structure or node in the system needs to be repaired, the whole system has to be shut down, while the maintenance is done. 
+Then, client requests cannot be attended during this period of time.
+
+Overload of traffic can be a risk to the server capacity. This, because there is no possibility to scale the service with additional servers as backup. 
+Leading to a possible breakdown of the web page and client requests, as traffic surpasess servers capacity
+
+The screenshot of the design can be accessed at https://drive.google.com/file/d/1j3vKl7e39C5HEcObPSHs8c2RBmM42hjK/view?usp=sharing
