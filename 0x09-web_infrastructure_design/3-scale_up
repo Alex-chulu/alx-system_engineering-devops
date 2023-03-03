@@ -2,3 +2,5 @@ We have added one server and sprited all components (web server, application ser
 in order to improve efficiency, lessen server overload and for easy management
 
 We have added a load balancer to help distribute the load accross all servers so that the users get maximum userbility of the applications
+
+infrastructure design link : https://drive.google.com/file/d/1ds7rzuwZxFGbmgp2immNSGSpcradCHfs/view?usp=sharing
