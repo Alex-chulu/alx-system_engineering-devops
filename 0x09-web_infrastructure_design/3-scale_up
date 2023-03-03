@@ -1,0 +1,4 @@
+We have added one server and sprited all components (web server, application server, database) to thir own servers
+in order to improve efficiency, lessen server overload and for easy management
+
+We have added a load balancer to help distribute the load accross all servers so that the users get maximum userbility of the applications
