@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 #Configuring  Nginx server so that /redirect_me is redirecting to another page
 
+sudo nano /etc/nginx/sites-available/default
+
 location /redirect_me {
 	rewrite ^/redirect_me$ http://www.wearemoving.com/new_page permanent;
 }
+sudo systemctl reload nginx
