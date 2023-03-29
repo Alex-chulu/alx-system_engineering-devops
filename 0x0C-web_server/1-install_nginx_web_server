@@ -7,8 +7,8 @@ apt-get update
 # Install Nginx
 apt-get -y install nginx
 
-# Restart Nginx
-service nginx restart
-
 # Create a file with "Hello World!" message
 echo "Hello World!" > /var/www/html/index.html
+
+# Restart Nginx
+service nginx restart
