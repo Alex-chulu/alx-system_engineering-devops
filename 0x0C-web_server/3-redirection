@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 #Configuring  Nginx server so that /redirect_me is redirecting to another page
 
+sudo apt update
+sudo apt -y install nginx
+
+echo "Hello World!" > /var/www/html/index.html
+
 sudo nano /etc/nginx/sites-available/default
 
 location /redirect_me {
