@@ -2,10 +2,13 @@
 #Install nginx web server
 
 # Update package list
-apt-get update
+sudo apt update
 
 # Install Nginx
-apt-get -y install nginx
+sudo apt -y install nginx
+
+# Configure Nginx to listen on port 80
+sudo ufw allow 'Nginx HTTP'
 
 # Create a file with "Hello World!" message
 echo "Hello World!" > /var/www/html/index.html
