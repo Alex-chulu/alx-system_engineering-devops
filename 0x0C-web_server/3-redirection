@@ -2,14 +2,11 @@
 #Configuring  Nginx server so that redirect_me is redirecting to another page
 
 sudo apt-get update
-sudo apt-get install nginx -y
-sudo systemctl start nginx
-sudo systemctl enable nginx
-sudo echo "server {
-    listen 80;
-    listen [::]:80;
-    server_name _;
-    return 301 https://www.newsite.com$request_uri;
-}" > /etc/nginx/sites-available/redirect_me.conf
-sudo ln -s /etc/nginx/sites-available/redirect_me.conf /etc/nginx/sites-enabled/
-sudo systemctl restart nginx
+sudo apt-get install -y nginx
+
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+my_new_string="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
+sudo sed -i "s/server_name _;/$my_new_string/" /etc/nginx/sites-enabled/default
+
+sudo service nginx restart
