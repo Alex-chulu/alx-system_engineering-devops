@@ -1,14 +1,30 @@
 #!/usr/bin/env bash
 #Configuring  Nginx server so that /redirect_me is redirecting to another page
 
-sudo apt update
-sudo apt -y install nginx
+# Install Nginx web server
+sudo apt-get update
+sudo apt-get install nginx -y
 
-echo "Hello World!" > /var/www/html/index.html
+# Create a new configuration file for your website
+sudo touch /etc/nginx/sites-available/your_website.conf
 
-sudo nano /etc/nginx/sites-available/default
+# Open the configuration file with your favorite text editor
+sudo nano /etc/nginx/sites-available/your_website.conf
 
-location /redirect_me {
-	rewrite ^/redirect_me$ http://www.wearemoving.com/new_page permanent;
+# Add the following lines to your configuration file
+server {
+    listen 80;
+    server_name your_website.com;
+
+    location /redirect_me {
+        return 301 https://www.your_new_website.com;
+    }
+
+    # Add other location blocks as needed
 }
-sudo systemctl reload nginx
+
+# Create a symbolic link to enable your website
+sudo ln -s /etc/nginx/sites-available/your_website.conf /etc/nginx/sites-enabled/
+
+# Test your configuration and reload Nginx
+sudo nginx -t && sudo systemctl reload nginx
