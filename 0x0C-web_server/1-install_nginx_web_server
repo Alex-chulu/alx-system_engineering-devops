@@ -14,4 +14,4 @@ ufw allow 'Nginx HTTP'
 echo "Hello World!" > /var/www/html/index.html
 
 # Restart Nginx
-service restart nginx
+service nginx start
