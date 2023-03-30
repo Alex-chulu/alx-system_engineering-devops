@@ -11,7 +11,7 @@ apt-get -y install nginx
 ufw allow 'Nginx HTTP'
 
 # Restart Nginx
-service start nginx
+service nginx start
 
 # Create a file with "Hello World!" message
 echo "Hello World!" > /var/www/html/index.html
