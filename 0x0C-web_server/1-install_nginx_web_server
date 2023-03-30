@@ -10,8 +10,8 @@ apt-get -y install nginx
 # Configure Nginx to listen on port 80
 ufw allow 'Nginx HTTP'
 
+# Restart Nginx
+service start nginx
+
 # Create a file with "Hello World!" message
 echo "Hello World!" > /var/www/html/index.html
-
-# Restart Nginx
-service nginx start
