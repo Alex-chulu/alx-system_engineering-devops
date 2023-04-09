@@ -4,4 +4,7 @@
 sudo apt update
 sudo apt install nginx
 
+# Right now, we will only need to allow traffic on port 80
+sudo ufw allow 'Nginx HTTP'
+
 add_header X-Served-By $hostname
