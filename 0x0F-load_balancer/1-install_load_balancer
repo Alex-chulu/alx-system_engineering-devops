@@ -4,16 +4,20 @@
 sudo apt-get update
 sudo apt-get install -y haproxy
 
-frontend http_front
+configuring=\
+	'
+	frontend http_front
         bind *:80
         mode http
         default_backend http_back
 
-backend http_back
+	backend http_back
         mode http
         balance roundrobin
         server 105404-web-01 35.153.78.21:80 check
         server 105404-web-02 54.172.82.247:80 check
+	'
+echo '$configuring' | sudo tee -a /etc/haproxy/haproxy.cfg
 
 echo 'ENABLED=1' | sudo tee -a /etc/default/haproxy
 
