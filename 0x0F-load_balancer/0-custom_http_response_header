@@ -2,7 +2,7 @@
 # Configure Nginx so that its HTTP response contains a custom header (on web-01 and web-02)
 
 sudo apt update
-sudo apt install nginx
+sudo apt -y install nginx
 
 # Right now, we will only need to allow traffic on port 80
 sudo ufw allow 'Nginx HTTP'
