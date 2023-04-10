@@ -6,14 +6,14 @@
 domain=$1
 subdomain=$2
 
-if  [ -Z '$subdomain' ]; then
-	subdomains=('www' 'lb-01' 'web-01' 'web-02')
+if [ -z "$subdomain" ]; then
+  subdomains=("www" "lb-01" "web-01" "web-02")
 else
-	subdomains=('$subdomain')
+  subdomains=("$subdomain")
 fi
 
-for subd in '${subdomains[@]}'; do
-	record_type=$(dig +short '$subd.$domain' | awk '{print $4}')
-	destination=$(dig +short '$subd.$domain' | awk '{print $1}')
-	echo 'The subdomain $subd is a $record_type record and points to $destination'
+for sub in "${subdomains[@]}"; do
+  record_type=$(dig +short "$sub.$domain" | awk '{print $4}')
+  destination=$(dig +short "$sub.$domain" | awk '{print $1}')
+  echo "The subdomain $sub is a $record_type record and points to $destination"
 done
