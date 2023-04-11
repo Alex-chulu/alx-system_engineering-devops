@@ -13,7 +13,6 @@ else
 fi
 
 for sub in "${subdomains[@]}"; do
-  record_type=$(dig +short "$sub.$domain" | awk '{print $4}')
-  destination=$(dig +short "$sub.$domain" | awk '{print $1}')
-  echo "The subdomain $sub is a $record_type record and points to $destination"
+  record_type=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:')
+  echo "$2 $record_type" | awk '{print "The subdomain" $sub "is a" $record_type "record and points to" $3}'
 done
