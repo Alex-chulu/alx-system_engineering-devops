@@ -1,0 +1,59 @@
+What happens when you type google.com in your browser and press Enter?
+
+A software engineer is a person who uses computer science, engineering principles, and programming languages to design,develop, test, and maintain software products and applications.
+
+In this article, I will explain my understanding of different elements of what happens in the world of computers.
+
+The above question is proved to be common and is set to assess one’s general knowledge of how the world wide web works on top of the internet.
+
+Here is what happens :)
+
+DNS request
+
+Every device on the internet has a unique address called IP address, be it a server, laptop, cellphone etc. All have their unique addresses which is a four parts address and looks like this 192.168.0.1
+
+Contrary to humans, computers have no problems at all remembering numbers like these. That’s where domain names fit in, to help people easily remember names other than numbers. For instance, we can easily remember “example.com” than “192.168.0.1”, pretty cool right?
+
+That's the work of a DNS (domain name system), to help browsers find servers on the internet and translate IP addresses to domain names so that we can easily use them.
+
+When you type https://www.google.com in your browser and press Enter, the browser will have to figure out which server on the internet is hosting this website and it does that by performing a DNS lookup to find its address. The fetched IP address is then sent back to the browser directing it to where the server is located.
+
+A DNS request is a query sent by a client (browser) to a DNS server. The client queries information (for example the IP address corresponding to www.google.com) in a single request. This request is followed by a single reply from the DNS server containing the IP address in question.
+
+TCP/IP
+
+TCP/IP (Transmission Control Protocol/Internet Protocol) is a suite of communication protocols that define the standards for transmitting data over computer networks, including the internet. The TCP/IP protocol is the foundation of the internet and enables devices to communicate with each other using a common language.
+
+At this point, the browser has received the IP address corresponding to the domain name the user typed in the browser URL tab. Using the public Internet routing infrastructure, packets from a client browser request get routed through the router, the ISP, through an internet exchange to switch ISPs or networks, all using transmission control protocol to find the server with the IP address sent back to us from the DNS.
+
+Once the browser finds the intended server on the Internet, it establishes a TCP connection with the server.
+
+Firewall
+
+A firewall is a network security device, either hardware or software-based, which monitors all incoming and outgoing traffic and based on a defined set of security rules it accepts, rejects or drops that specific traffic. Accept: allow the traffic, Reject: block the traffic but reply with an “unreachable error”, Drop: block the traffic with no reply.
+
+A firewall establishes a barrier between secured internal networks and outside untrusted networks, such as the Internet. Much more like a filter, no unauthorized traffic will get through into a local network that is secured with a well configured firewall. This means if the user requested resources that are not allowed by local a network, he/she will not be able to get the requested resources from the external networks. Similarly, any connection unauthorized will not be allowed, thereby keeping the internal network secure.
+
+HTTPS/SSL
+
+SSL certificates are what enable websites to move from HTTP to HTTPS, which is more secure. HTTPS is a secure version of HTTP and the S at the end stands for Secure. SSL stands for Secure Sockets Layer. They make encryption for the traffic to be possible making the data unreadable to intruders. The data is then decrypted at its destination so the end user can understand the content. In our case, using this protocol the web browser (client) and the server that is keeping the data shared this data securely.
+
+Load-balancer
+
+Load balancing refers to efficiently distributing incoming network traffic across a group of backend servers, also known as a server farm or server pool. This is particularly useful when a network of servers is used to handle client requests. Unlike single server architecture, a multi-server environment needs to be properly organized so that we efficiently serve our clients while fully utilizing all available resources.
+
+A load balancer (s) sits in front of a server farm to distribute the traffic to all the available servers. This in the end reduces the burden on one or few servers in the presence of many servers and helps to speed up server load time.
+
+Web server
+
+A web server can be a software running on the hardware or the hardware itself that uses HTTP (Hypertext Transfer Protocol) and other protocols to respond to client requests made over the World Wide Web. The main job of a web server is to display website content through storing, processing and delivering webpages to users.
+
+Application server
+
+An application server is a program that resides on the server, and it’s a server programmer providing business logic behind any application. This server can be a part of the network or the distributed network.
+
+Database
+
+A database is an organized collection of structured information, or data, typically stored electronically in a computer system. A database is usually controlled by a database management system (DBMS). Together, the data and the DBMS, along with the applications that are associated with them, are referred to as a database system, often shortened to just database.
+
+This is our data mine; all organization's data is stored here. When the data is properly stored, it delivers good results to decision makers by providing accurate information that shape the future of organizations. All the websites and applications that provide dynamic information, their data is stored in the database and is a good way to keep data.
