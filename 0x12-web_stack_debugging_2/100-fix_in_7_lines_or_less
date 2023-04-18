@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Using what you did for task #1, make your fix short and sweet.
+sed -i 's/# server_names_hash_bucket_size 64;/server_names_hash_bucket_size 64;/' /etc/nginx/nginx.conf
+systemctl restart nginx
