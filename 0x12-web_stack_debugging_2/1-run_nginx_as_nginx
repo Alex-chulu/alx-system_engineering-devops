@@ -7,4 +7,4 @@ pkill apache2
 sed -i "s/user www-data/user nginx/g" /etc/nginx/nginx.conf
 sed -i "s80/8080/g" /etc/nginx/sites-available/default
 # Restart nginx
-sudo -u gninx service nginx restart
+sudo -u nginx service nginx restart
