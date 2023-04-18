@@ -3,5 +3,6 @@
 
 chmod 644 /etc/nginx/nginx.conf
 pkill apache2
+sed -i "s/80/8080/g" /etc/nginx/sites-available/default
 sed -i 's/# server_names_hash_bucket_size 64;/server_names_hash_bucket_size 64;/' /etc/nginx/nginx.conf
 systemctl restart nginx
