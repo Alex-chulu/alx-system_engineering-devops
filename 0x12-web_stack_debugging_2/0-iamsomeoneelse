@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
 # Run software as another user
 
-sudo -u $1 whoami
+if [ $# -eq 0 ]
+  then
+    echo "No arguments supplied"
+else
+  sudo -u $1 whoami
+fi
