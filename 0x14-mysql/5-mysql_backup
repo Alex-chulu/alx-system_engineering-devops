@@ -5,7 +5,7 @@
 mkdir -p /backup/mysql
 
 # Dump MySQL databases
-mysqldump -u root -p"$1" --all-databases > /backup/mysql/backup.sql
+mysqldump -uroot -p"$1" --all-databases > /backup/mysql/backup.sql
 
 # Compress backup file
 tar -czvf $(date +%d-%m-%Y).tar.gz /backup/mysql/backup.sql
