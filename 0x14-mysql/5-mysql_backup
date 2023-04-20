@@ -8,7 +8,7 @@ now=$(date +"%d-%m-%Y")
 mkdir -p /backup/mysql
 
 # Dump MySQL databases
-mysqldump -u root -p$1 --all-databases > /backup/mysql/backup.sql
+mysqldump -u root -p"$1" --all-databases > /backup/mysql/backup.sql
 
 # Compress backup file
 tar -czvf /backup/mysql/$now.tar.gz /backup/mysql/backup.sql
