@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 # Bash script that generates a MySQL dump and creates a compressed archive out of it
 
-# Get current date
-now=$(date +"%d-%m-%Y")
-
 # Create backup directory
 mkdir -p /backup/mysql
 
@@ -11,7 +8,4 @@ mkdir -p /backup/mysql
 mysqldump -u root -p"$1" --all-databases > /backup/mysql/backup.sql
 
 # Compress backup file
-tar -czvf /backup/mysql/$now.tar.gz /backup/mysql/backup.sql
-
-# Remove backup file
-rm /backup/mysql/backup.sql
+tar -czvf $(date +%d-%m-%Y).tar.gz /backup/mysql/backup.sql
