@@ -2,17 +2,38 @@
 import requests
 import sys
 
-if __name__ == '__main__':
+"""
+This script uses the requests module to get the employee's TODO list progress from a REST API.
+
+Usage: python3 todo.py EMPLOYEE_ID
+"""
+
+def main():
+    """
+    Main function that gets the employee's TODO list progress from a REST API.
+    """
     if len(sys.argv) != 2:
-        print("Usage: ./0-gather_data_from_an_API.py <employee_id>")
-        exit(1)
+        print("Usage: {} EMPLOYEE_ID".format(sys.argv[0]))
+        sys.exit(1)
 
     employee_id = sys.argv[1]
-    user_url = 'https://jsonplaceholder.typicode.com/users/{}'.format(employee_id)
-    todo_url = 'https://jsonplaceholder.typicode.com/todos?userId={}'.format(employee_id)
+    url = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(employee_id)
+    response = requests.get(url)
 
-    user_response = requests.get(user_url)
-    todo_response = requests.get(todo_url)
+    if response.status_code != 200:
+        print("Error: Employee ID not found")
+        sys.exit(1)
 
-    try:
-        user_dict = user_response
+    todos = response.json()
+    employee_name = todos[0]['name']
+    total_tasks = len(todos)
+    done_tasks = len([todo for todo in todos if todo.get('completed')])
+
+    print("Employee {} is done with tasks({}/{}):".format(employee_name, done_tasks, total_tasks))
+
+    for todo in todos:
+        if todo.get('completed'):
+            print("\t {}".format(todo['title']))
+
+if __name__ == '__main__':
+    main()
