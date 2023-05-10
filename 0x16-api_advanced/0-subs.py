@@ -14,13 +14,14 @@ def number_of_subscribers(subreddit):
         subreddit (str): The name of the subreddit to query.
 
     Returns:
-        int: The number of subscribers for the subreddit. Returns 0 if the subreddit is invalid.
+        int: The number of subscribers for the subreddit. 
+        Returns 0 if the subreddit is invalid.
     """
     url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
     headers = {'User-Agent': 'My API Request Agent'}
     res = requests.get(url, headers=headers)
     if res.status_code == 200:
-        dt = res.json()
-        return dt.get('data').get('subscribers')
+        data = res.json()
+        return data.get('data').get('subscribers')
     else:
         return 0
