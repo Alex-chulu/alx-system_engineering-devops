@@ -22,7 +22,7 @@ def top_ten(subreddit):
                             params=parameters)
 
     if response.status_code == 200:
-        dat = response.json().get('data').get('children')
+        data = response.json().get('data').get('children')
         for result in results:
             print(data.get('data').get('title'))
     else:
