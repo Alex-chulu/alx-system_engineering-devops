@@ -1,11 +1,5 @@
 #Fixing nginx so that it should serve 2000 requests
-exec { 'increase_nginx_limit':
-  command => 'sed -i "s/4/2500/" /etc/default/nginx',
-  path    => '/usr/bin/env'
+exec { 'increase_nginx':
+  command => '/usr/bin/env sed -i s/4/2500/ /etc/default/nginx',
 }
-
-#Nginx restarting
-exec { 'restart_nginx':
-  command => 'service nginx restart',
-  path    => '/usr/bin/env'
-}
+exec { '/usr/bin/env service nginx restart': }
